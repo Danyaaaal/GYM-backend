@@ -1,0 +1,82 @@
+Admin Endpoints:
+Authentication:
+Admin Login:
+Endpoint: /admin/login
+Method: POST
+Description: Allows admin users to authenticate.
+Security: Implement JWT-based authentication. Use bcrypt to securely hash and compare passwords.
+Users Management:
+
+Get All Users:
+Endpoint: /admin/users
+Method: GET
+Description: Retrieves all users' data.
+Security: Require admin authentication via JWT.
+Get User by ID:
+Endpoint: /admin/users/:id
+Method: GET
+Description: Retrieves a specific user's data by ID.
+Security: Require admin authentication via JWT.
+Trainers Management:
+Get All Trainers:
+Endpoint: /admin/trainers
+Method: GET
+Description: Retrieves all trainers' data.
+Security: Require admin authentication via JWT.
+Get Trainer by ID:
+Endpoint: /admin/trainers/:id
+Method: GET
+Description: Retrieves a specific trainer's data by ID.
+Security: Require admin authentication via JWT.
+Trainer Endpoints:
+Authentication:
+Trainer Signup:
+Endpoint: /trainers/signup
+Method: POST
+Description: Allows trainers to create a new account get email verification and cookies.
+Security: Use bcrypt to securely hash passwords. Validate input data to prevent injection attacks.
+Trainer Login:
+Endpoint: /trainers/login
+Method: POST
+Description: Allows trainers to authenticate.
+Security: Implement JWT-based authentication. Use bcrypt to securely hash and compare passwords.
+Users Information Access:
+Get User Profile:
+Endpoint: /trainers/users/:id
+Method: GET
+Description: Retrieves a specific user's information.
+Security: Require trainer authentication via JWT.
+Profile Management:
+Get Trainer Profile:
+Endpoint: /trainers/profile
+Method: GET
+Description: Retrieves the profile of the authenticated trainer.
+Security: Require authentication via JWT.
+Update Trainer Profile:
+Endpoint: /trainers/profile
+Method: PUT
+Description: Allows trainers to update their profile information.
+Security: Require authentication via JWT. Ensure trainers can only update their own profiles.
+User Endpoints:
+Authentication:
+User Signup:
+Endpoint: /users/signup
+Method: POST
+Description: Allows users to create a new account and get email verification and cookies.
+Security: Use bcrypt to securely hash passwords. Validate input data to prevent injection attacks.
+User Login:
+Endpoint: /users/login
+Method: POST
+Description: Allows users to authenticate.
+Security: Implement JWT-based authentication. Use bcrypt to securely hash and compare passwords.
+Profile Management:
+Get User Profile:
+Endpoint: /users/profile
+Method: GET
+Description: Retrieves the profile of the authenticated user.
+Security: Require authentication via JWT. Ensure users can only access their own profiles.
+Update User Profile:
+Endpoint: /users/profile
+Method: PUT
+Description: Allows users to update their profile information.
+Security: Require authentication via JWT. Ensure users can only update their own profiles.

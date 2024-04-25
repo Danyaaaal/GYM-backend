@@ -67,3 +67,5 @@
 `Method:`  Get
 `Description:` The trainer should be allowed to get some of users info like: name, lastname, email, phone, age, height, weight, goal`{gain or losse}`
 `Security:` the trainer should not be allowed to get users' bank account and address.
+
+`email veryfication` and `cookies`
