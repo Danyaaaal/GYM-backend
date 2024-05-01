@@ -1,14 +1,16 @@
 const errorHandler = (err, req, res, next) => {
-    console.error(err.stack); // Log the error stack trace
-  
-    // Check if the error is a custom one with a status code and message
-    if (err.statusCode && err.message) {
-      res.status(err.statusCode).json({ message: err.message });
-    } else {
-      // If the error is not a custom one, return a generic 500 internal server error
-      res.status(500).json({ message: 'Internal server error' });
-    }
-  };
-  
-  export default errorHandler;
-  
+  // check if the status code is not successful (200) assign a custom status code otherwise 500
+  console.log("ERROR MIDDLEWARE");
+  // console.log(res.statusCode);
+  let statusCode = res.statusCode === 200 ? 500 : res.statusCode;
+  let message = err.message;
+
+  // once I have my custom status code I will send a response
+
+  res.status(statusCode).json({
+    message,
+    stack: process.env.NODE_ENV === "production" ? null : err.stack,
+  });
+};
+
+export { errorHandler };

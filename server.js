@@ -1,29 +1,24 @@
 import express from "express";
-import connectDB from "./config/connectDB.js";
 import colors from "colors";
-import router from "./routes/userRoute.js";
-import errorHandler from "./middleware/errorHandler.js";
-
+import connectDB from "./config/connectDB.js";
+import userRoutes from "./routes/user.route.js";
+import { errorHandler } from "./middleware/errorHandler.js";
+import cors from "cors";
 const { PORT } = process.env;
 
-// EXPRESS SERVER INSTANCE
-const app = express();
-
-// DB CONNECTION
 await connectDB();
-
-// URL ENCODED MIDDLEWARE
+const app = express();
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(cors());
+// POST /signup
+app.use("/", userRoutes);
 
-app.use("/", router);
-
-// ERROR HANDLING MIDDLEWARE
 app.use(errorHandler);
 
-app.listen(PORT, (req, res) => {
+app.listen(PORT, () => {
   console.log(
-    `:::`.green,
-    `Server is running on`.yellow,
-    ` http://localhost:${PORT}`.green.underline.bold
+    `server is listening on`,
+    `http://localhost:${PORT}`.underline.green
   );
 });

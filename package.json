@@ -1,6 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
+  "description": "`Endpoint`: /users/signup `Method:` POST `Description:` Allows users to create a new account. `Security:` Use bcrypt to securely hash passwords. Validate input data to prevent injection attacks.",
   "main": "server.js",
   "type": "module",
   "scripts": {
@@ -13,12 +14,9 @@
   "dependencies": {
     "bcrypt": "^5.1.1",
     "colors": "^1.4.0",
-    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
-    "env": "^0.0.2",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.3.2"
-  },
-  "description": ""
+    "mongoose": "^8.3.3"
+  }
 }

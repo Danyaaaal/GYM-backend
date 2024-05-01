@@ -1,20 +1,17 @@
 import { Schema, model } from "mongoose";
 
-const rulesSchema = new Schema({
-    rulesName: {
+const exerciseSchema = new Schema({
+    exercise: {
         type: String,
         required: true,
-     
+        unique: true
       },
       description: {
         type: String,
         required: true
       },
-      image: {
-        type: String,
-      },
     }, { timestamps: true });
 
-const Rules = model("Rules", rulesSchema);
+const Exercise = model("Exercise", exerciseSchema);
 
-export default Rules;
+export default Exercise;
