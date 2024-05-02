@@ -311,6 +311,9 @@ const updateSingDataById = asyncHandler(async (req, res) => {
     const updatedUser = await User.findByIdAndUpdate(id, newData, {
       new: true,
     });
+    // if(User !== 'trainer' && id !== `trainerid`){
+    //   return res.status(400).json({ message: "You are not authorized to update this data" });
+    // }
     // const updatedRule = await Rules.findByIdAndUpdate(id, newData, {
     //   new: true,
     // });
